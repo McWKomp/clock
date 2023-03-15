@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="CSS/styles.css">
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+
+<body>
+
+    <header class="main-header">
+        <div class="brand">
+            <h1>Clock</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="main-div">
+            <div class="clock-container">
+                <div class="clock-body">
+
+                    <div class="display">
+
+                    </div>
+
+                    <p>You will wake up at</p>
+
+                    <div class="select-container">
+                        <select name="hour" id="hour" class="select" onfocus="this.size=3" onblur="this.size=0"
+                            onchange="this.size=1; this.blur()">
+                            <option value="hour" class="select-value" disabled selected>Hour</option>
+                        </select>
+
+                        <select name="minute" id="minute" class="select" onfocus="this.size=3" onblur="this.size=0"
+                            onchange="this.size=1; this.blur()">
+                            <option value="minute" class="select-value" disabled selected>Minute</option>
+                        </select>
+
+                        <select name="second" id="second" class="select" onfocus="this.size=3" onblur="this.size=0"
+                            onchange="this.size=1; this.blur()">
+                            <option value="second" class="select-value" disabled selected>Second</option>
+                        </select>
+                    </div>
+
+                    <div class="btn-container">
+                        <button id="set-button" class="btn">Set clock</button>
+                        <button id="reset-button" class="btn">Off</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<script src="JS/index.js"></script>
+
+</html>
