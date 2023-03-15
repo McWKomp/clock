@@ -5,15 +5,28 @@ var select = document.querySelectorAll(".select");
 var reset = document.querySelector("#reset-button")
 var set = document.querySelector("#set-button")
 
-var date = new Date()
+var date;
 
-var getHour = date.getHours();
-var getMinute = date.getMinutes();
-var getSecond = date.getSeconds();
+var getHour;
+var getMinute;
+var getSecond;
 
-var clock = document.createTextNode(`${"00"}:${"00"}:${"00"}`);
+var clock;
 
-display.append(clock);
+setInterval(() => {
+    date = new Date()
+
+    getHour = date.getHours();
+    getMinute = date.getMinutes();
+    getSecond = date.getSeconds();
+
+    clock = document.createTextNode(`${getHour}:${getMinute}:${getSecond}`);
+
+    display.append(clock);
+
+    $(clock.previousSibling).remove();
+}, 1000);
+
 
 var ring = new Audio("./don_pollo.mp3");
 
@@ -88,20 +101,6 @@ $(set).click(function () {
 
         function timeShow() {
 
-            getSecond += 1;
-            if (getSecond >= 60) {
-                while (getSecond >= 60) {
-                    getSecond = 0;
-                    getMinute += 1;
-                    while (getMinute >= 60) {
-                        getMinute = 0;
-                        getHour += 1;
-                    }
-                }
-            } else {
-                getSecond = getSecond;
-            }
-
             if ($(reset).click(function () {
                 resetCheck = 1
             }));
@@ -115,6 +114,7 @@ $(set).click(function () {
             }
 
             if (getHour == selectedHour && getMinute == selectedMinute && getSecond == selectedSecond) {
+                $(clock).remove();
                 ring.play()
                 ring.loop = true;
                 if ($(reset).click(function () {
@@ -127,12 +127,6 @@ $(set).click(function () {
                 UI.alertShow("#DFD05B", "Time over");
                 return;
             }
-
-            clock = document.createTextNode(`${getHour}:${getMinute}:${getSecond}`);
-
-            display.append(clock);
-
-            $(clock.previousSibling).remove();
 
             setTimeout(function () {
                 timeShow()
