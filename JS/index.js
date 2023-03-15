@@ -27,7 +27,6 @@ setInterval(() => {
     $(clock.previousSibling).remove();
 }, 1000);
 
-
 var ring = new Audio("./don_pollo.mp3");
 
 class UI {
@@ -101,15 +100,18 @@ $(set).click(function () {
 
         function timeShow() {
 
+
             if ($(reset).click(function () {
                 resetCheck = 1
             }));
 
             if (resetCheck == 1) {
+                $(clock).remove();
+
                 set.disabled = false;
                 reset.disabled = true;
 
-                UI.alertShow("#DFD05B", "Clock has been stopped")
+                UI.alertShow("#DFD05B", "Clock has been reseted. You can set new one now")
                 return;
             }
 
