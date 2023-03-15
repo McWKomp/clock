@@ -86,8 +86,10 @@ $(set).click(function () {
     var selectedSecond = select[2].options[select[2].selectedIndex].value;
 
     if (selectedHour == "hour" || selectedMinute == "minute" || selectedSecond == "second") {
+        $(clock).remove();
 
         UI.alertShow("#EE669A", "You did not select time!")
+        return;
 
     } else {
 
