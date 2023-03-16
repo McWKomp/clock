@@ -59,7 +59,7 @@ class UI {
     }
 }
 
-for (let i = 12; i >= 0; i--) {
+for (let i = 23; i >= 0; i--) {
     i = i < 10 ? '0' + i : i;
     let option = `<option index="${i}" class="select-value" value="${i}">${i}</option>`;
     select[0].firstElementChild.insertAdjacentHTML("afterend", option);
